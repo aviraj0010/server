@@ -8,7 +8,7 @@
     ],
     "routes": [
       {
-        "src": "/predict",
+        "src": "/api/predict",
         "dest": "api/app.py"
       }
     ]
