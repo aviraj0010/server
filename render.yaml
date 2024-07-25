@@ -4,6 +4,6 @@ services:
     repo: https://github.com/aviraj0010/python_project.git
     branch: master
     env: python
-    buildCommand: cd api && pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn api.app:app
     pythonVersion: 3.11
