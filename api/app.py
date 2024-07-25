@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image
 import io
-import os  # Add this import
+import os
 
 app = Flask(__name__)
 
@@ -34,11 +34,9 @@ def predict():
         result = np.argmax(prediction, axis=1)[0]
         return jsonify({'prediction': int(result)})
 
-
 @app.route('/api/test', methods=['GET'])
 def test():
-    return jsonify({'message': 'API is working!'})
+    return jsonify({'message': 'API is working'})
 
-    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
