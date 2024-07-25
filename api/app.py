@@ -24,16 +24,25 @@ def preprocess_image(image):
 @app.route('/api/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
+        print("No file part")
         return jsonify({'error': 'No file part'})
     file = request.files['file']
     if file.filename == '':
+        print("No selected file")
         return jsonify({'error': 'No selected file'})
     if file:
-        image = Image.open(io.BytesIO(file.read()))
-        processed_image = preprocess_image(image)
-        prediction = model.predict(processed_image)
-        result = np.argmax(prediction, axis=1)[0]
-        return jsonify({'prediction': int(result)})
+        try:
+            image = Image.open(io.BytesIO(file.read()))
+            print("Image received, processing...")
+            processed_image = preprocess_image(image)
+            print("Image processed, making prediction...")
+            prediction = model.predict(processed_image)
+            result = np.argmax(prediction, axis=1)[0]
+            print(f"Prediction result: {result}")
+            return jsonify({'prediction': int(result)})
+        except Exception as e:
+            print(f"Error: {e}")
+            return jsonify({'error': str(e)})
 
 @app.route('/api/test', methods=['GET'])
 def test():
