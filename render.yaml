@@ -5,5 +5,5 @@ services:
     branch: master
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn api.app:app
+    startCommand: gunicorn --workers=3 --timeout=300 api:app
     pythonVersion: 3.11

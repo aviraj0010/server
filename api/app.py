@@ -10,7 +10,7 @@ import logging
 
 app = Flask(__name__)
 
-# Load your trained model
+# Load your trained model once at startup
 model_path = os.path.join(os.path.dirname(__file__), 'model', 'final5.h5')
 model = load_model(model_path)
 
