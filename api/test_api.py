@@ -1,12 +1,12 @@
 import requests
 
-# Define the API URL
-api_url = "https://python-project-lf06.onrender.com/api/predict"  # Update with the correct URL if testing remotely
 
-# Path to the image file you want to test
-file_path = 'C:/Users/chuda/Desktop/image.jpeg'  # Update with the correct path
+api_url = "https://python-project-lf06.onrender.com/api/predict" 
 
-# Open the image file in binary mode
+
+file_path = 'C:/Users/avu/Desktop/image.jpeg' 
+
+
 with open(file_path, 'rb') as f:
     # Prepare the files dictionary
     files = {'file': f}
