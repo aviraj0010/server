@@ -16,7 +16,7 @@
 
 1. Git Clone Project
 ```sh
-https://github.com/aviraj0010/python_project.git
+https://github.com/aviraj0010/server.git
 ```
 
 2. Create an Environment
